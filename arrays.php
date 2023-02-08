@@ -57,5 +57,56 @@ echo "Displaying the value and how many times it is repeated: <br>";
 print_r(array_count_values($names)). "<br>";
 
 
+// Some of the important array Methods you must be familiar with:
+
+// in_array():
+/*
+in_array is a method that loops and return either true or fase based on the condition. For example,
+if we check the array names for a value and want to know if it is exists or not, we can use in_array(). The following 
+example shows how: 
+*/
+echo "<br>";
+if(in_array("Welcome", $names, false)){ //false is optional, but if we turn it to true, it means it will check value and datatype
+    echo "The word exists.<br>";
+}
+else{
+    echo "The word does not exist.<br>";
+}
+
+// array_search():
+/**
+ * This method is another important method to learn and be aware of in PHP.
+ * It searches a specified array and returns either true or false based on the checking.
+ * please check the following example:
+ */
+$search_welcome = array_search("Welcome", $names, true);
+if($search_welcome){
+    echo "The Word exists and its index is: $search_welcome and its value: $names[$search_welcome] <br>";
+}
+
+// array_key_exists()  method:
+/**
+ * This is most useful when we have key-value pair array.
+ * Meaning, the index is not auto numbering starting from zero.
+ * since $names array is indexed, we will create a new array with key
+ * and value pairs and implement to see how array_key_exists() method
+ * works:
+ */
+$countryCodes = array(
+    "EGYPT" => "+22",
+    "SUDAN" => "+24",
+    "OMAN"  => "+968",
+    "UAE"   => "+971",
+    "Kuwait" => "+965"
+);
+
+// Checking to know if Oman as a key exists in the array or not:
+// array methods are case-sensitive, meaning, if they dont match exactly, they return false
+if(array_key_exists("oman", $countryCodes)){
+    echo "Yes, Oman Area Code exist in the array"."<br>";
+}
+else{
+    echo "NO, Oman area code does not exist in the array"."<br>";
+}
 
 ?>
